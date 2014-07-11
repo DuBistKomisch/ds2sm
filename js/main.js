@@ -341,7 +341,7 @@ $(document).ready(function ()
   var langs = '';
   for (var l in str)
     langs += ' <a href="javascript:document.set_lang(\'' + l + '\');" title="' + str[l]['by'] + ' ' + str[l]['credit'] + '">' + l + '</a>';
-  $('#p6').html(langs);
+  $('#p7').html(langs);
   if (document.location.hash)
     document.set_lang(document.location.hash.substring(1));
   else
@@ -358,10 +358,11 @@ document.set_lang = function(l)
   
   // update interface
   $('#p2').text(str[lang]['ner']);
-  $('#p4').text(str[lang]['updated'] + ' 2014-07-08');
-  $('#p5').html(str[lang]['by'] + ' <a href="http://jakebarnes.com.au">Jake Barnes</a> &ndash; <a href="http://jakebarnes.com.au/ds2sm/">' + str[lang]['full'] + '</a> / <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=259425063">' + str[lang]['guide'] + '</a>');
-  $('#p7').text(str[lang][swapped ? 'sm3' : 'sm1']);
-  $('#p8').text(str[lang]['sm2']);
+  $('#p6').text(str[lang]['updated'] + ' 2014-07-08');
+  $('#p4').html(str[lang]['by'] + ' <a href="http://jakebarnes.com.au">Jake Barnes</a>');
+  $('#p5').html('<a href="http://jakebarnes.com.au/ds2sm/">' + str[lang]['full'] + '</a> / <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=259425063">' + str[lang]['guide'] + '</a>');
+  $('#p8').text(str[lang][swapped ? 'sm3' : 'sm1']);
+  $('#p9').text(str[lang]['sm2']);
   render();
 }
 
@@ -604,7 +605,7 @@ function click(e)
   if (pos.x > 45 && pos.x < 87 && pos.y > 352 && pos.y < 394)
   {
     swapped = !swapped;
-    $('#p7').text(str[lang][swapped ? 'sm3' : 'sm1']);
+    $('#p8').text(str[lang][swapped ? 'sm3' : 'sm1']);
     render();
   }
 }

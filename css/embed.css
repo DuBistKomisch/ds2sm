@@ -32,7 +32,7 @@ article
   padding: 5px;
 }
 
-#p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8
+#p1, #p2, #p3, #p4, #p5, #p6, #p7, #p8, #p9
 {
   position: absolute;
   width: 500px;
@@ -67,7 +67,7 @@ article
   width: 200px;
 }
 
-#p3, #p4, #p5
+#p3, #p4, #p5, #p6
 {
   left: 10px;
   
@@ -76,10 +76,11 @@ article
   line-height: 120%;
 }
 #p3 { top: 50px; }
-#p4 { top: 630px; }
-#p5 { top: 650px; }
+#p4 { top: 610px; }
+#p5 { top: 630px; }
+#p6 { top: 650px; }
 
-#p6
+#p7
 {
   left: 10px;
   top: 675px;
@@ -87,7 +88,7 @@ article
   font-size: 75%;
 }
 
-#p7
+#p8
 {
   left: 10px;
   bottom: -340px;
@@ -98,7 +99,7 @@ article
   vertical-align: bottom;
 }
 
-#p8
+#p9
 {
   left: 10px;
   width: 210px;
