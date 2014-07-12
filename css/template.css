@@ -2,11 +2,16 @@
  * layout
  */
 
+html
+{
+  padding: 0px 10px;
+}
+
 body
 {
   margin-left: auto;
   margin-right: auto;
-  width: 960px;
+  max-width: 960px;
 }
 
 section
