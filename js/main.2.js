@@ -17,21 +17,24 @@ var tiers = [
   1500, 1750, 2000, 2250, 2500, 2750,
   3000, 5000, 7000,
   9000, 12000,
-  15000
+  15000,
+  20000,
+  30000,
+  45000
 ];
 
 // multiplayer items
 var items = [
-  {'image':'1MhTTaW','down':2,'up':1},
-  {'image':'1MhTTaW','down':5,'up':4,'ner':true},
-  {'image':'BbrpeUx','down':3,'up':1},
-  {'image':'BbrpeUx','down':6,'up':5,'ner':true},
-  {'image':'JLwnpKi','down':3,'up':2},
-  {'image':'DjEL3cI','down':4,'up':4},
-  {'image':'XAx0NYK','down':0,'up':3},
-  {'image':'ywXSSZl','down':2,'up':2},
+  {'image':'1MhTTaW','down':3,'up':1},
+  {'image':'1MhTTaW','down':6,'up':4,'ner':true},
+  {'image':'BbrpeUx','down':4,'up':1},
+  {'image':'BbrpeUx','down':7,'up':5,'ner':true},
+  {'image':'JLwnpKi','down':5,'up':2},
+  {'image':'DjEL3cI','down':5,'up':5},
+  {'image':'XAx0NYK','down':0,'up':4},
+  {'image':'ywXSSZl','down':3,'up':3},
   {'image':'OQjx6yE','down':1,'up':3},
-  {'image':'HYiIkKi','down':0,'up':3},
+  {'image':'HYiIkKi','down':1,'up':3},
   {'image':'G8JgGD8','down':5,'up':4}
 ];
 
@@ -358,7 +361,7 @@ document.set_lang = function(l)
   
   // update interface
   $('#p2').text(str[lang]['ner']);
-  $('#p6').text(str[lang]['updated'] + ' 2014-07-08');
+  $('#p6').text(str[lang]['updated'] + ' 2014-07-24');
   $('#p4').html(str[lang]['by'] + ' <a href="http://jakebarnes.com.au">Jake Barnes</a>');
   $('#p5').html('<a href="http://jakebarnes.com.au/ds2sm/">' + str[lang]['full'] + '</a> / <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=259425063">' + str[lang]['guide'] + '</a>');
   $('#p8').text(str[lang][swapped ? 'sm3' : 'sm1']);
