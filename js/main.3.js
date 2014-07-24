@@ -27,7 +27,7 @@ var tiers = [
 var items = [
   {'image':'1MhTTaW','down':3,'up':1},
   {'image':'1MhTTaW','down':6,'up':4,'ner':true},
-  {'image':'BbrpeUx','down':4,'up':1},
+  {'image':'BbrpeUx','down':4,'up':2},
   {'image':'BbrpeUx','down':7,'up':5,'ner':true},
   {'image':'JLwnpKi','down':5,'up':2},
   {'image':'DjEL3cI','down':5,'up':5},
