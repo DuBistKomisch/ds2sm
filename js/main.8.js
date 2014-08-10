@@ -28,12 +28,14 @@ $(document).ready(function ()
   // select language
   var langs = '';
   for (var l in str)
-    langs += ' <a href="javascript:document.set_lang(\'' + l + '\');" title="' + str[l]['by'] + ' ' + str[l]['credit'] + '">' + l + '</a>';
-  $('#p7').html(langs);
+    langs += ' <li onclick="javascript:document.set_lang(\'' + l + '\');" title="' + str[l]['by'] + ' ' + str[l]['credit'] + '">' + str[l].name + '</li>';
+  $('#lang-menu').html(langs);
   if (document.location.hash)
     document.set_lang(document.location.hash.substring(1));
   else
     document.set_lang('en');
+  $('#lang').mouseenter(function() { $('#lang-menu').show(); });
+  $('#lang').mouseleave(function() { $('#lang-menu').hide(); });
   
   // initial render
   render();
@@ -45,8 +47,10 @@ document.set_lang = function(l)
   document.location = "#" + lang;
   
   // update interface
+  $('#lang-selected').text(str[lang]['name']);
+  $('#lang-menu').hide();
   $('#p2').text(str[lang]['ner']);
-  $('#p6').text(str[lang]['updated'] + ' 2014-07-24');
+  $('#p6').text(str[lang]['updated'] + ' 2014-08-11');
   $('#p4').html(str[lang]['by'] + ' <a href="http://jakebarnes.com.au">Jake Barnes</a>');
   $('#p5').html('<a href="http://jakebarnes.com.au/ds2sm/">' + str[lang]['full'] + '</a> / <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=259425063">' + str[lang]['guide'] + '</a>');
   $('#p8').text(str[lang][swapped ? 'sm3' : 'sm1']);
@@ -66,6 +70,7 @@ function render()
   draw.textAlign = 'right';
   draw.textBaseline = 'bottom';
   draw.drawImage(sprites, 640, 0, 32, 32, 50, 357, 32, 32);
+  draw.drawImage(sprites, 672, 0, 20, 24, 8, 8, 20, 24);
   
   // range boxes
   for (var i = 0; i < items.length; i++)
@@ -353,6 +358,7 @@ var items = [
 
 var str = {
   'en': {
+    'name': 'English',
     'credit': 'DuBistKomisch',
     'sm1': 'Item user\'s soul memory',
     'sm2': 'Range of available players',
@@ -387,6 +393,7 @@ var str = {
     'item10-desc': 'Join this covenant and wear this ring to be automatically summoned to the worlds of blue apostles who have been invaded by dark spirits.'
   },
   'de': {
+    'name': 'Deutsch',
     'credit': 'SenSenSen',
     'sm1': 'Gegenstandnutzers Seelenerinnerung',
     'sm2': 'Bereiche der erreichbaren Spieler',
@@ -421,6 +428,7 @@ var str = {
     'item10-desc': 'Leistet diesen Eid und tragt diesen Ring, um automatisch in die Welten der Blauen Apostel beschworen zu werden, die von dunklen Geistern überfallen wurden.'
   },
   'ru': {
+    'name': 'Русский',
     'credit': 'Google Translate',
     'sm1': 'Памяти душа Item пользователя',
     'sm2': 'Диапазон доступных игроков',
@@ -455,6 +463,7 @@ var str = {
     'item10-desc': 'Присоединитесь к этому ковенанту и наденьте кольцо, чтобы вас автоматически призывали в миры апостолов Лазурного пути, если туда вторглись духи Тьмы.'
   },
   'pt': {
+    'name': 'Português',
     'credit': 'SorinM4rkov',
     'sm1': 'Memória de almas do usuário do item',
     'sm2': 'Intervalo com jogadores disponíveis',
@@ -489,6 +498,7 @@ var str = {
     'item10-desc': 'Junte-se a este pacto e use este anel para ser automaticamente invocado aos mundos dos aspóstolos azuis invadidos por espíritos sombrios.'
   },
   'fr': {
+    'name': 'Français',
     'credit': 'Fuzati',
     'sm1': 'Mémoire d\'âmes de l\'utilisateur',
     'sm2': 'Etendue des joueurs joignables',
@@ -523,6 +533,7 @@ var str = {
     'item10-desc': 'Prêtez serment d\'allégeance et portez cet anneau pour rejoindre automatiquement les mondes d\'Apôtres bleus envahis par des esprits maléfiques.'
   },
   'it': {
+    'name': 'Italiano',
     'credit': 'Caus7iK',
     'sm1': 'Memoria delle anime di chi utilizza l\'oggetto',
     'sm2': 'Intervallo dei giocatori disponibili',
@@ -557,6 +568,7 @@ var str = {
     'item10-desc': 'Unisciti al patto e indossa questo anello per essere automaticamnte evocato nei mondi delle sentinelle del blu invase da spiriti oscuri.'
   },
   'es': {
+    'name': 'Español',
     'credit': 'Matutin',
     'sm1': 'Memoria de almas de quien utiliza el objeto',
     'sm2': 'Rango de jugadores disponibles',
@@ -591,6 +603,7 @@ var str = {
     'item10-desc': 'Únete a este juramento y ponte este anillo para ser conjurado automáticamente a los mundos de los apóstoles azules invadidos por espiritus oscuros.'
   },
   'pl': {
+    'name': 'Polski',
     'credit': 'MrCrivit',
     'sm1': 'Pamięć dusz gracza używającego przedmiotu',
     'sm2': 'Zasięg dostępnych graczy',
@@ -625,6 +638,7 @@ var str = {
     'item10-desc': 'Przystąp do tego przymierza i noś ten pierścień, by automatycznie przyzwano cię do świata Apostołów Błękitu, których zaatakowały mroczne duchy.'
   },
   'zh': {
+    'name': '漢語',
     'credit': 'Kiki',
     'sm1': '正在使用物品的玩家的靈魂記憶',
     'sm2': '在線玩家的範圍',
