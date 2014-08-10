@@ -12,14 +12,14 @@ Current language support (of officially translated languages in-game):
 
 - English **✓** - *DuBistKomisch*
 - German **✓** - *SenSenSen*
-- Russian ✓ (needs #3) - *?*
+- Russian **✓** - *Google Translate*
 - Brazilian Portuguese **✓** - *SorinM4rkov*
 - French **✓** - *Fuzati*
 - Italian **✓** - *Caus7iK*
 - Spanish **✓** - *Matutin*
 - Japanese
 - Polish **✓** - *MrCrivit*
-- Traditional Chinese
+- Traditional Chinese **✓** - *Kiki*
 - Korean
 
 Contact me if you'd like to help translate one of the remaining languages (or a completely different one)! :)
