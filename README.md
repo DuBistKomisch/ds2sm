@@ -29,6 +29,6 @@ Embedding
 
 Use an iframe to embed the page from the live site:
 
-`<iframe width="830" height="823" src="http://jakebarnes.com.au/embed.html"></iframe>`
+`<iframe width="830" height="823" src="http://jakebarnes.com.au/ds2sm/embed.html"></iframe>`
 
 Add `#xx` at the end of the URL, where xx is the two-letter language code as defined in [ISO-639-1](http://loc.gov/standards/iso639-2/php/code_list.php), to make it use that language by default. English will be used if an invalid code is used.
