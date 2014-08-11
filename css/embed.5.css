@@ -29,7 +29,7 @@ a
   position: absolute;
   
   left: 95px;
-  top: 391px;
+  top: 316px;
   width: 120px;
   height: 30px;
   
@@ -143,23 +143,23 @@ a
 
 #foot-credit
 {
-  bottom: -765px;
+  bottom: -620px;
 }
 
 #foot-links
 {
-  bottom: -790px;
+  bottom: -645px;
 }
 
 #foot-updated
 {
-  bottom: -815px;
+  bottom: -670px;
 }
 
 #sm-blue
 {
   left: 10px;
-  bottom: -380px;
+  bottom: -306px;
   width: 210px;
   color: #00b;
   font-weight: bold;
@@ -171,7 +171,7 @@ a
 {
   left: 10px;
   width: 210px;
-  top: 445px;
+  top: 371px;
   color: #090;
   font-weight: bold;
   text-align: right;

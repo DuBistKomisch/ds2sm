@@ -69,22 +69,37 @@ function render()
   // static
   draw.textAlign = 'right';
   draw.textBaseline = 'bottom';
-  draw.drawImage(sprites, 640, 0, 32, 32, 50, 397, 32, 32);
+  draw.drawImage(sprites, 640, 0, 32, 32, 50, 324, 32, 32);
   draw.drawImage(sprites, 672, 0, 20, 24, 8, 8, 20, 24);
   
   // range boxes
   for (var i = 0; i < items.length; i++)
   {
-    var x = 376.5 + 40 * i, top, bottom;
+    var x = 376.5 + 40 * i, y = 323.5, top, bottom;
     var down = swapped ? items[i].up : items[i].down;
     var up = swapped ? items[i].down : items[i].up;
     
     draw.beginPath();
     if (i == hover)
-      draw.rect(230.5, top = 381.5 - down * 40, x + 30 - 230.5, bottom = 60 + (down + up) * 40);
+    {
+      top = y - down * 30, bottom = top + 30 + (down + up) * 30;
+
+      var left = 230.5;
+      draw.moveTo(left, top - 10);
+      draw.lineTo(left + 85, top - 10);
+      draw.lineTo(left + 90, top);
+      draw.lineTo(x + 30, top);
+      draw.lineTo(x + 30, bottom);
+      draw.lineTo(left + 90, bottom);
+      draw.lineTo(left + 85, bottom + 10);
+      draw.lineTo(left, bottom + 10);
+      draw.lineTo(left, top - 10);
+    }
     else
-      draw.rect(x, top = 391.5 - down * 40, 30, bottom = 40 + (down + up) * 40);
-    bottom += top;
+    {
+      draw.rect(x, top = y - down * 30, 30, bottom = 30 + (down + up) * 30);
+      bottom += top;
+    }
     
     if (i == hover || hover == -1)
     {
@@ -100,7 +115,7 @@ function render()
     draw.fill();
     
     draw.beginPath();
-    draw.moveTo(x + 14.5, 50 + 720 * (i % 2));
+    draw.moveTo(x + 14.5, 50 + 580 * (i % 2));
     draw.lineTo(x + 14.5, (i % 2 == 0) ? top : bottom)
     draw.lineWidth = 2;
     draw.stroke();
@@ -110,7 +125,7 @@ function render()
   // images
   for (var i = 0; i < items.length; i++)
   {
-    var x = 360 + 80 * (i / 2), y = 720 * (i % 2);
+    var x = 360 + 80 * (i / 2), y = 580 * (i % 2);
     
     // glow
     if (i == hover)
@@ -136,21 +151,17 @@ function render()
   // tier box
   if (tier != -1)
   {
-    var x = 230.5, y = 381.5;
+    var x = 230.5, y = 313.5;
     draw.beginPath();
-    draw.moveTo(x, y);
+    draw.moveTo(x - 140, y);
     draw.lineTo(x + 85, y);
     draw.lineTo(x + 90, y + 10);
     draw.lineTo(x + 585, y + 10);
-    draw.lineTo(x + 585, y + 50);
-    draw.lineTo(x + 90, y + 50);
-    draw.lineTo(x + 85, y + 60);
-    draw.lineTo(x, y + 60);
-    draw.lineTo(x - 5, y + 55);
-    draw.lineTo(x - 140, y + 55);
-    draw.lineTo(x - 140, y + 5);
-    draw.lineTo(x - 5, y + 5);
-    draw.lineTo(x, y);
+    draw.lineTo(x + 585, y + 40);
+    draw.lineTo(x + 90, y + 40);
+    draw.lineTo(x + 85, y + 50);
+    draw.lineTo(x - 140, y + 50);
+    draw.lineTo(x - 140, y);
     draw.strokeStyle = '#00d';
     draw.stroke();
     draw.fillStyle = 'rgba(0, 0, 221, 0.1)';
@@ -169,7 +180,7 @@ function render()
   if (tier == -1 && hover != -1) draw.fillStyle = draw.strokeStyle = '#060'; // [special casing intensifies]
   for (var i = 0; i < tiers.length; i++)
   {
-    var y = 399.5 - tier * 40 + i * 40;
+    var y = 331.5 - tier * 30 + i * 30;
     
     // souls
     if (i >= tier - down && i < tier) draw.fillStyle = draw.strokeStyle = '#060';
@@ -187,12 +198,12 @@ function render()
     if (i == tier + up + 1) draw.fillStyle = draw.strokeStyle = '#444';
     draw.font = 'bold 15px sans-serif';
     draw.textAlign = 'left';
-    draw.fillText(i + 1, 325, y + 20)
+    draw.fillText(i + 1, 325, y + 15)
     draw.font = '15px sans-serif';
   }
   
   // hardcoded 999,999,999
-  var y = 359.5 - tier * 40 + i * 40;
+  var y = 359.5 - tier * 30 + i * 30;
   if (tier - down == i) draw.fillStyle = draw.strokeStyle = '#060';
   draw.textAlign = 'right';
   draw.fillText('999 999 999', 315, y)
@@ -295,7 +306,7 @@ function mouse(e)
   var found = -1;
   for (var i = 0; i < items.length; i++)
   {
-    var x = 360 + 80 * (i / 2), y = 720 * (i % 2);
+    var x = 360 + 80 * (i / 2), y = 580 * (i % 2);
     if (pos.x > x && pos.x < x + 64 && pos.y > y && pos.y < y + 96)
     {
       found = i;
@@ -315,7 +326,7 @@ function click(e)
 {
   var pos = getCursorPosition(e);
   
-  if (pos.x > 45 && pos.x < 87 && pos.y > 392 && pos.y < 434)
+  if (pos.x > 45 && pos.x < 87 && pos.y > 319 && pos.y < 361)
   {
     swapped = !swapped;
     $('#sm-blue').text(str[lang][swapped ? 'sm3' : 'sm1']);
