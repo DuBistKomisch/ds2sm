@@ -49,12 +49,12 @@ document.set_lang = function(l)
   // update interface
   $('#lang-selected').text(str[lang]['name']);
   $('#lang-menu').hide();
-  $('#p2').text(str[lang]['ner']);
-  $('#p6').text(str[lang]['updated'] + ' 2014-08-11');
-  $('#p4').html(str[lang]['by'] + ' <a href="http://jakebarnes.com.au">Jake Barnes</a>');
-  $('#p5').html('<a href="http://jakebarnes.com.au/ds2sm/">' + str[lang]['full'] + '</a> / <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=259425063">' + str[lang]['guide'] + '</a>');
-  $('#p8').text(str[lang][swapped ? 'sm3' : 'sm1']);
-  $('#p9').text(str[lang]['sm2']);
+  $('#item-ner').text(str[lang]['ner']);
+  $('#foot-credit').html(str[lang]['by'] + ' <a href="http://jakebarnes.com.au">Jake Barnes</a>');
+  $('#foot-links').html('<a href="http://jakebarnes.com.au/ds2sm/">' + str[lang]['full'] + '</a> / <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=259425063">' + str[lang]['guide'] + '</a>');
+  $('#foot-updated').text(str[lang]['updated'] + ' 2014-08-11');
+  $('#sm-blue').text(str[lang][swapped ? 'sm3' : 'sm1']);
+  $('#sm-green').text(str[lang]['sm2']);
   render();
 }
 
@@ -69,7 +69,7 @@ function render()
   // static
   draw.textAlign = 'right';
   draw.textBaseline = 'bottom';
-  draw.drawImage(sprites, 640, 0, 32, 32, 50, 357, 32, 32);
+  draw.drawImage(sprites, 640, 0, 32, 32, 50, 397, 32, 32);
   draw.drawImage(sprites, 672, 0, 20, 24, 8, 8, 20, 24);
   
   // range boxes
@@ -81,9 +81,9 @@ function render()
     
     draw.beginPath();
     if (i == hover)
-      draw.rect(230.5, top = 341.5 - down * 40, x + 30 - 230.5, bottom = 60 + (down + up) * 40);
+      draw.rect(230.5, top = 381.5 - down * 40, x + 30 - 230.5, bottom = 60 + (down + up) * 40);
     else
-      draw.rect(x, top = 351.5 - down * 40, 30, bottom = 40 + (down + up) * 40);
+      draw.rect(x, top = 391.5 - down * 40, 30, bottom = 40 + (down + up) * 40);
     bottom += top;
     
     if (i == hover || hover == -1)
@@ -100,7 +100,7 @@ function render()
     draw.fill();
     
     draw.beginPath();
-    draw.moveTo(x + 14.5, 50 + 600 * (i % 2));
+    draw.moveTo(x + 14.5, 50 + 720 * (i % 2));
     draw.lineTo(x + 14.5, (i % 2 == 0) ? top : bottom)
     draw.lineWidth = 2;
     draw.stroke();
@@ -110,7 +110,7 @@ function render()
   // images
   for (var i = 0; i < items.length; i++)
   {
-    var x = 360 + 80 * (i / 2), y = 600 * (i % 2);
+    var x = 360 + 80 * (i / 2), y = 720 * (i % 2);
     
     // glow
     if (i == hover)
@@ -136,7 +136,7 @@ function render()
   // tier box
   if (tier != -1)
   {
-    var x = 230.5, y = 341.5;
+    var x = 230.5, y = 381.5;
     draw.beginPath();
     draw.moveTo(x, y);
     draw.lineTo(x + 85, y);
@@ -169,7 +169,7 @@ function render()
   if (tier == -1 && hover != -1) draw.fillStyle = draw.strokeStyle = '#060'; // [special casing intensifies]
   for (var i = 0; i < tiers.length; i++)
   {
-    var y = 359.5 - tier * 40 + i * 40;
+    var y = 399.5 - tier * 40 + i * 40;
     
     // souls
     if (i >= tier - down && i < tier) draw.fillStyle = draw.strokeStyle = '#060';
@@ -179,7 +179,7 @@ function render()
     
     draw.beginPath();
     draw.moveTo(320, y - 8);
-    draw.lineTo(Math.abs(i - tier) <= 6 ? 815 : 350, y - 8); // extend in middle
+    draw.lineTo(tier <= i + 7 && tier >= i - 8 ? 815 : 350, y - 8); // extend in middle
     draw.stroke();
     
     // tier
@@ -203,12 +203,12 @@ function render()
   draw.stroke();
   
   // text
-  $('#p1').text(hover != -1 ? str[lang]['item'+hover+'-label'] : str[lang]['none']);
-  $('#p3').text(hover != -1 ? str[lang]['item'+hover+'-desc'] : '');
+  $('#item-name').text(hover != -1 ? str[lang]['item'+hover+'-label'] : str[lang]['none']);
+  $('#item-desc').text(hover != -1 ? str[lang]['item'+hover+'-desc'] : '');
   if (hover != -1 && items[hover].ner != undefined)
-    $('#p2').show();
+    $('#item-ner').show();
   else
-    $('#p2').hide();
+    $('#item-ner').hide();
 }
 
 // --- utility
@@ -241,12 +241,12 @@ function getTier()
   var text = $('#my-sm').val();
   text = text.replace(/[^\d]/g, ''); // ignore non-numeric characters
   if (text.length == 0) // Number("") == 0, wat?
-    return -1;
+    return 0;
   
   // convert
   var n = Number(text);
   if (/*Number.*/isNaN(n)) // invalid
-    return -1;
+    return 0;
   if (n < 0) // clamp to 0
     n = 0;
   if (n > 999999999) // clamp to 999,999,999
@@ -295,7 +295,7 @@ function mouse(e)
   var found = -1;
   for (var i = 0; i < items.length; i++)
   {
-    var x = 360 + 80 * (i / 2), y = 600 * (i % 2);
+    var x = 360 + 80 * (i / 2), y = 720 * (i % 2);
     if (pos.x > x && pos.x < x + 64 && pos.y > y && pos.y < y + 96)
     {
       found = i;
@@ -315,10 +315,10 @@ function click(e)
 {
   var pos = getCursorPosition(e);
   
-  if (pos.x > 45 && pos.x < 87 && pos.y > 352 && pos.y < 394)
+  if (pos.x > 45 && pos.x < 87 && pos.y > 392 && pos.y < 434)
   {
     swapped = !swapped;
-    $('#p8').text(str[lang][swapped ? 'sm3' : 'sm1']);
+    $('#sm-blue').text(str[lang][swapped ? 'sm3' : 'sm1']);
     render();
   }
 }
