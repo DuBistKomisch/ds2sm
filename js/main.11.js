@@ -203,14 +203,14 @@ function render()
   }
   
   // hardcoded 999,999,999
-  var y = 359.5 - tier * 30 + i * 30;
+  var y = 331.5 - tier * 30 + i * 30;
   if (tier - down == i) draw.fillStyle = draw.strokeStyle = '#060';
   draw.textAlign = 'right';
   draw.fillText('999 999 999', 315, y)
   
   draw.beginPath();
   draw.moveTo(320, y - 8);
-  draw.lineTo(Math.abs(i - tier) <= 6 ? 815 : 350, y - 8);
+  draw.lineTo(tier <= i + 7 && tier >= i - 8 ? 815 : 350, y - 8);
   draw.stroke();
   
   // text
