@@ -17,7 +17,7 @@ Current language support (of officially translated languages in-game):
 - French **✓** - *Fuzati*
 - Italian **✓** - *Caus7iK*
 - Spanish **✓** - *Matutin*
-- Japanese
+- Japanese **✓** - *Fexelea*
 - Polish **✓** - *MrCrivit*
 - Traditional Chinese **✓** - *Kiki*
 - Korean
