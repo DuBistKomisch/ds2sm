@@ -7,7 +7,7 @@ var draw = null;
 var sprites = new Image();
 var hover = -1;
 var lang = 'en';
-var swapped = false;
+var swapped = true;
 
 // --- main
 
@@ -362,7 +362,7 @@ var items = [
   {'sx':4,'down':5,'up':5},
   {'sx':2,'down':0,'up':4},
   {'sx':1,'down':3,'up':3},
-  {'sx':3,'down':1,'up':3},
+  {'sx':3,'down':3,'up':1}, // reversed
   {'sx':0,'down':1,'up':3},
   {'sx':5,'down':5,'up':4}
 ];
@@ -371,7 +371,7 @@ var str = {
   'en': {
     'name': 'English',
     'credit': 'DuBistKomisch',
-    'sm1': 'Item user\'s soul memory',
+    'sm1': 'Phantom\'s soul memory',
     'sm2': 'Range of available players',
     'sm3': 'Host\'s soul memory',
     'ner': '+ Name-Engraved Ring',
@@ -406,7 +406,7 @@ var str = {
   'de': {
     'name': 'Deutsch',
     'credit': 'SenSenSen',
-    'sm1': 'Gegenstandnutzers Seelenerinnerung',
+    'sm1': 'Seelenerinnerung des Phantoms',
     'sm2': 'Bereiche der erreichbaren Spieler',
     'sm3': 'Seelenerinnerung des Hosts',
     'ner': '+ Ring mit Namensgravur',
@@ -441,7 +441,7 @@ var str = {
   'ru': {
     'name': 'Русский',
     'credit': 'Google Translate',
-    'sm1': 'Памяти душа Item пользователя',
+    'sm1': 'Памяти душа фантома',
     'sm2': 'Диапазон доступных игроков',
     'sm3': 'Памяти душа хозяина',
     'ner': '+ Именное кольцо',
@@ -476,7 +476,7 @@ var str = {
   'pt': {
     'name': 'Português',
     'credit': 'SorinM4rkov',
-    'sm1': 'Memória de almas do usuário do item',
+    'sm1': 'Memória de almas do fantasma',
     'sm2': 'Intervalo com jogadores disponíveis',
     'sm3': 'Memória de almas do hospedeiro',
     'ner': '+ Anel com o Nome Gravado',
@@ -511,7 +511,7 @@ var str = {
   'fr': {
     'name': 'Français',
     'credit': 'Fuzati',
-    'sm1': 'Mémoire d\'âmes de l\'utilisateur',
+    'sm1': 'Mémoire d\'âmes de Spectre',
     'sm2': 'Etendue des joueurs joignables',
     'sm3': 'Mémoire d\'âmes de l\'hôte',
     'ner': '+ Anneau-Cartouche',
@@ -546,7 +546,7 @@ var str = {
   'it': {
     'name': 'Italiano',
     'credit': 'Caus7iK',
-    'sm1': 'Memoria delle anime di chi utilizza l\'oggetto',
+    'sm1': 'Memoria delle anime del phantasma',
     'sm2': 'Intervallo dei giocatori disponibili',
     'sm3': 'Memoria delle anime dell\'host',
     'ner': '+ Anello con Nome',
@@ -581,9 +581,9 @@ var str = {
   'es': {
     'name': 'Español',
     'credit': 'Matutin',
-    'sm1': 'Memoria de almas de quien utiliza el objeto',
+    'sm1': 'Memoria de almas del espectro',
     'sm2': 'Rango de jugadores disponibles',
-    'sm3': 'Memoria de almas del anfitrion',
+    'sm3': 'Memoria de almas del anfitrión',
     'ner': '+ Anillo del Nombre Grabado',
     'none': 'Ningun objeto seleccionado',
     'updated': 'actualizado el',
@@ -616,14 +616,14 @@ var str = {
   'ja': {
     'name': '日本語',
     'credit': 'Fexelea',
-    'sm1': 'アイテムを使用するプレーヤーのソウル累計量',
+    'sm1': '幽霊のソウル累計量',
     'sm2': '参加可能プレーヤーの範囲',
     'sm3': 'ホストのソウル累計量',
     'ner': '+ Name-Engraved Ring',
     'none': 'アイテムが選択されていません',
     'updated': '最終更新',
     'by': 'by',
-    'full': '全画面表示',
+    'full': '充実した',
     'guide': '案内',
     'item0-label': 'White Sign Soapstone',
     'item0-desc': 'Be summoned as a phantom to another world in order to help that world\'s master for a certain time. You will be rewarded with a Token of Fidelity for successfully assisting the other player.',
@@ -651,7 +651,7 @@ var str = {
   'pl': {
     'name': 'Polski',
     'credit': 'MrCrivit',
-    'sm1': 'Pamięć dusz gracza używającego przedmiotu',
+    'sm1': 'Pamięć dusz upiór',
     'sm2': 'Zasięg dostępnych graczy',
     'sm3': 'Pamięć dusz hosta',
     'ner': '+ Grawerowany Pierścień',
@@ -686,7 +686,7 @@ var str = {
   'zh': {
     'name': '漢語中文',
     'credit': 'Kiki',
-    'sm1': '正在使用物品的玩家的靈魂記憶',
+    'sm1': '以半靈體的靈魂記憶',
     'sm2': '在線玩家的範圍',
     'sm3': '主人的靈魂記憶',
     'ner': '+ 刻名戒指',
