@@ -23,7 +23,7 @@ $(document).ready(function ()
 
   // load spritesheet
   sprites.onload = typing;
-  sprites.src = 'images/icons.2.png';
+  sprites.src = 'images/icons.png';
   
   // select language
   var langs = '';
