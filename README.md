@@ -1,9 +1,11 @@
 Dark Souls 2 Soul Memory Calculator/Visualiser
 ===
 
+Note: I've merged this into [my main website](https://github.com/dubistkomisch/jakebarnes), there won't be any more activity here.
+
 Tells you who you can play with online in Dark Souls 2.
 
-http://jakebarnes.com.au/ds2sm
+https://jakebarn.es/ds2sm
 
 i18n+l10n
 ---
@@ -29,6 +31,6 @@ Embedding
 
 Use an iframe to embed the page from the live site:
 
-`<iframe width="830" height="678" src="http://jakebarnes.com.au/ds2sm/embed.html"></iframe>`
+`<iframe width="830" height="678" src="https://jakebarn.es/ds2sm/embed.html"></iframe>`
 
 Add `#xx` at the end of the URL, where xx is the two-letter language code as defined in [ISO-639-1](http://loc.gov/standards/iso639-2/php/code_list.php), to make it use that language by default. English will be used if an invalid code is used.
